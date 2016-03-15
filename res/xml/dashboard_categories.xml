@@ -105,7 +105,6 @@
                 android:fragment="com.android.settings.crdroid.ExtraSettings"
                 android:icon="@drawable/ic_settings_system"
                 />
-
     </dashboard-category>
 
     <!-- DEVICE -->

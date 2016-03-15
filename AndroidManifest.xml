@@ -1930,7 +1930,6 @@
                 android:value="com.android.settings.wfd.WifiDisplaySettings" />
         </activity>
 
-
         <!-- Development settings -->
 
         <!-- DeviceInfo adds the user's requested build to stats upload.  -->
@@ -2180,7 +2179,72 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
             </intent-filter>
         </receiver>
-        <!-- crDroid activities end -->
+
+        <!-- Navigation settings activity. -->
+        <activity android:name="Settings$NavigationSettingsActivity"
+                android:label="@string/navigationbar_settings_title"
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.crdroid.Navbar" />
+        </activity>
+
+        <!-- System action picker -->
+        <activity android:name="com.android.settings.crdroid.ActionPickerDialogActivity"
+                android:theme="@style/Theme.SettingsDialog"
+                android:label="@string/choose_action_title"
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
+        <!-- Icon pack picker -->
+        <activity android:name="com.android.settings.crdroid.IconPickerActivity"
+                android:theme="@style/Theme.SettingsDialog"
+                android:label="@string/icon_pack_picker_dialog_title"
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
+        <!-- Icon pack grid -->
+        <activity android:name="com.android.settings.crdroid.IconPackGridActivity"
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
+        <!-- Navigation settings activity. -->
+        <activity android:name="Settings$SmartbarSettingsActivity"
+                android:label="@string/smartbar_settings_title"
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.crdroid.SmartbarSettings" />
+        </activity>
+
+        <!-- Navigation settings activity. -->
+        <activity android:name="Settings$FlingSettingsActivity"
+                android:label="@string/fling_settings"
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.crdroid.FlingSettings" />
+        </activity>
+
+        <!-- CrDroid activities End -->
 
         <!-- CyanogenMod activities Start -->
         <activity android:name="Settings$ProfilesSettingsActivity"
