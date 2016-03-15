@@ -34,4 +34,6 @@
     <dimen name="ga_gesture_thumbnail_inset">8dip</dimen>
     <dimen name="ga_gesture_thumbnail_size">64dip</dimen>
 
+    <!-- Icon pack picker -->
+    <dimen name="alert_dialog_padding_material">20dp</dimen>
 </resources>

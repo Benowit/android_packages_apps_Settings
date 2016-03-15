@@ -32,6 +32,7 @@ import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
 
+import android.preference.PreferenceFragment;
 import android.util.Log;
 import android.view.IWindowManager;
 import android.view.KeyCharacterMap;
@@ -219,6 +220,8 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                 needsNavigationBar = wm.needsNavigationBar();
             } catch (RemoteException e) {
             }
+
+        mDisableNavigationKeys = (SwitchPreference) findPreference(DISABLE_NAV_KEYS);
 
             if (needsNavigationBar) {
                 prefScreen.removePreference(mDisableNavigationKeys);
@@ -411,6 +414,9 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                     // Hide navigation bar category
                     prefScreen.removePreference(mNavigationPreferencesCat);
             }
+            //if (!ScreenType.isPhone(getActivity())) {
+            //    mNavigationPreferencesCat.removePreference(mNavigationBarLeftPref);
+            //}
         } catch (RemoteException e) {
             Log.e(TAG, "Error getting navigation bar status");
         }
@@ -627,9 +633,15 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                     ? (ScreenType.isTablet(getActivity()) ? 2 : 1) : 0;
             CMSettings.System.putInt(getActivity().getContentResolver(),
                     CMSettings.System.SWAP_VOLUME_KEYS_ON_ROTATION, value);
+        } else if (preference == mPowerEndCall) {
+            handleTogglePowerButtonEndsCallPreferenceClick();
+            return true;
+        } else if (preference == mHomeAnswerCall) {
+            handleToggleHomeButtonAnswersCallPreferenceClick();
+            return true;
         } else if (preference == mDisableNavigationKeys) {
             mDisableNavigationKeys.setEnabled(false);
-            mNavigationPreferencesCat.setEnabled(false);
+            //mNavigationPreferencesCat.setEnabled(false);
             writeDisableNavkeysOption(getActivity(), mDisableNavigationKeys.isChecked());
             updateDisableNavkeysOption();
             updateDisableNavkeysCategories(true);
@@ -637,10 +649,10 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
                 @Override
                 public void run() {
                     mDisableNavigationKeys.setEnabled(true);
-                    mNavigationPreferencesCat.setEnabled(mDisableNavigationKeys.isChecked());
+                    //mNavigationPreferencesCat.setEnabled(mDisableNavigationKeys.isChecked());
                     updateDisableNavkeysCategories(mDisableNavigationKeys.isChecked());
                 }
-            }, 1000);
+            }, 200);
         } else if (preference == mPowerEndCall) {
             handleTogglePowerButtonEndsCallPreferenceClick();
             return true;
@@ -648,7 +660,6 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
             handleToggleHomeButtonAnswersCallPreferenceClick();
             return true;
         }
-
         return super.onPreferenceTreeClick(preferenceScreen, preference);
     }
 

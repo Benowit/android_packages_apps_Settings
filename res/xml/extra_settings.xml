@@ -59,4 +59,10 @@
                 android:fragment="com.android.settings.crdroid.fragments.AppCircleBar"
                 android:title="@string/app_circle_bar_title" />
 
+        <!-- Data Usage -->
+        <PreferenceScreen
+                android:id="@+id/navbar"
+                android:title="@string/crdroid_navbar_settings"
+                android:fragment="com.android.settings.crdroid.Navbar"/>
+
 </PreferenceScreen>
