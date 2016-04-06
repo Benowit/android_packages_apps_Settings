@@ -383,7 +383,9 @@ public class SettingsActivity extends Activity
             WeatherServiceSettings.class.getName()
             Navbar.class.getName(),
             FlingSettings.class.getName(),
-            SmartbarSettings.class.getName()
+            SmartbarSettings.class.getName(),
+            LiveLockScreenSettings.class.getName(),
+            WeatherServiceSettings.class.getName()
     };
 
 
