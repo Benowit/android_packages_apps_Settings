@@ -380,11 +380,9 @@ public class SettingsActivity extends Activity
             ProfilesSettings.class.getName(),
             NotificationManagerSettings.class.getName(),
             com.android.settings.crdroid.LockscreenShortcutFragment.class.getName(),
-            com.android.settings.crdroid.RecentAppSidebarFragment.class.getName(),
-            com.android.settings.crdroid.WakelockBlocker.class.getName(),
             Navbar.class.getName(),
             FlingSettings.class.getName(),
-            SmartbarSettings.class.getName()
+            SmartbarSettings.class.getName(),
             LiveLockScreenSettings.class.getName(),
             WeatherServiceSettings.class.getName()
     };
